@@ -1,4 +1,4 @@
-# DevOps TestBed
+# DevOps Testbed
 
 ## Motivation
 Every piece of of software you interact with online is developed, tested, configured, deployed, monitored, and scaled up. Heroku simplifies many aspects of this significantly, which is awesome for new developers that want to get their apps online as quickly as possible. In the industry, however, many of these simplifications and shortcuts come at a significant speed and resource cost and more ‘industrial grade’ solutions are required.
