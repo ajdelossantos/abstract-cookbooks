@@ -22,7 +22,7 @@ end
 # Temporary workaround due to annotate gem dependency
 execute "Install Rake" do
   cwd node[:abstract][:path]
-  command "gem install rake -v '12.3.0' --source 'https://rubygems.org/'"
+  command "sudo gem install rake -v '12.3.0' --source 'https://rubygems.org/'"
   user "ubuntu"
   # group new_resource.group
   environment ({"HOME"=>"/home/ubuntu"})
