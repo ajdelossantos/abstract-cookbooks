@@ -58,7 +58,7 @@ end
 
 execute "Install Coderay Gem" do
   cwd node[:abstract][:path]
-  command "gem install coderay -v '1.1.2' --source 'https://rubygems.org/'"
+  command "sudo gem install coderay -v '1.1.2' --source 'https://rubygems.org/'"
   user "ubuntu"
   # group new_resource.group
   environment ({"HOME"=>"/home/ubuntu"})
