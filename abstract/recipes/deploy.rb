@@ -19,6 +19,16 @@ git "#{node[:abstract][:path]}" do
   user "ubuntu"
 end
 
+# Temporary workaround due to annotate gem dependency
+execute "Install Rake" do
+  cwd node[:abstract][:path]
+  command "gem install rake -v '12.3.0' --source 'https://rubygems.org/'"
+  user "ubuntu"
+  # group new_resource.group
+  environment ({"HOME"=>"/home/ubuntu"})
+  # not_if { package_installed? }
+end
+
 execute "Install Gems" do
   cwd node[:abstract][:path]
   command "bundle install"
