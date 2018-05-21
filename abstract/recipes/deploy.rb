@@ -20,9 +20,18 @@ git "#{node[:abstract][:path]}" do
 end
 
 # Temporary workaround due to annotate gem dependency
-execute "Install Rake" do
+execute "Install Rake Gem" do
   cwd node[:abstract][:path]
   command "sudo gem install rake -v '12.3.0' --source 'https://rubygems.org/'"
+  user "ubuntu"
+  # group new_resource.group
+  environment ({"HOME"=>"/home/ubuntu"})
+  # not_if { package_installed? }
+end
+
+execute "Install Nokogiri Gem" do
+  cwd node[:abstract][:path]
+  command "sudo gem install nokogiri -v '1.8.1' --source 'https://rubygems.org/'"
   user "ubuntu"
   # group new_resource.group
   environment ({"HOME"=>"/home/ubuntu"})
