@@ -65,6 +65,15 @@ execute "Install Coderay Gem" do
   # not_if { package_installed? }
 end
 
+execute "Install Byebug Gem" do
+  cwd node[:abstract][:path]
+  command "sudo gem install byebug -v '9.1.0' --source 'https://rubygems.org/'"
+  user "ubuntu"
+  # group new_resource.group
+  environment ({"HOME"=>"/home/ubuntu"})
+  # not_if { package_installed? }
+end
+
 execute "Install Gems" do
   cwd node[:abstract][:path]
   command "bundle install"
