@@ -19,65 +19,11 @@ git "#{node[:abstract][:path]}" do
   user "ubuntu"
 end
 
-# Temporary workaround due to annotate gem dependency
-# execute "Install Rake Gem" do
-#   cwd node[:abstract][:path]
-#   command "sudo gem install rake -v '12.3.0' --source 'https://rubygems.org/'"
-#   user "ubuntu"
-#   # group new_resource.group
-#   environment ({"HOME"=>"/home/ubuntu"})
-#   # not_if { package_installed? }
-# end
-
-# execute "Install Nokogiri Gem" do
-#   cwd node[:abstract][:path]
-#   command "sudo gem install nokogiri -v '1.8.1' --source 'https://rubygems.org/'"
-#   user "ubuntu"
-#   # group new_resource.group
-#   environment ({"HOME"=>"/home/ubuntu"})
-#   # not_if { package_installed? }
-# end
-
-# execute "Install Rack Gem" do
-#   cwd node[:abstract][:path]
-#   command "sudo gem install rack -v '2.0.3' --source 'https://rubygems.org/'"
-#   user "ubuntu"
-#   # group new_resource.group
-#   environment ({"HOME"=>"/home/ubuntu"})
-#   # not_if { package_installed? }
-# end
-
-# execute "Install Annotate Gem" do
-#   cwd node[:abstract][:path]
-#   command "sudo gem install annotate -v '2.7.2' --source 'https://rubygems.org/'"
-#   user "ubuntu"
-#   # group new_resource.group
-#   environment ({"HOME"=>"/home/ubuntu"})
-#   # not_if { package_installed? }
-# end
-
-# execute "Install Coderay Gem" do
-#   cwd node[:abstract][:path]
-#   command "sudo gem install coderay -v '1.1.2' --source 'https://rubygems.org/'"
-#   user "ubuntu"
-#   # group new_resource.group
-#   environment ({"HOME"=>"/home/ubuntu"})
-#   # not_if { package_installed? }
-# end
-
-# execute "Install Byebug Gem" do
-#   cwd node[:abstract][:path]
-#   command "sudo gem install byebug -v '9.1.0' --source 'https://rubygems.org/'"
-#   user "ubuntu"
-#   # group new_resource.group
-#   environment ({"HOME"=>"/home/ubuntu"})
-#   # not_if { package_installed? }
-# end
-
+# Temporary workaround
 execute "Install Gems" do
   cwd node[:abstract][:path]
-  command "bundle install"
-  user "root"
+  command "sudo bundle install"
+  user "ubuntu"
   # group new_resource.group
   environment ({"HOME"=>"/home/ubuntu"})
   # not_if { package_installed? }
